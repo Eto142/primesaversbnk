@@ -1,0 +1,230 @@
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="bk-footer">
+  <div class="bk-wrap">
+    <div class="bk-footer-grid">
+      <!-- Brand -->
+      <div class="bk-footer-about">
+        <a href="/"><img src="{{ asset('home/asset/img/logo-white.png') }}" alt="Primesavers Bank" class="bk-footer-logo" style="height:50px; width:auto;"></a>
+        <p>Primesavers Bank is dedicated to innovating, simplifying, and securing digital banking for personal, corporate, and global financial needs.</p>
+        <div class="bk-footer-socials">
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="bk-footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="{{ url('about') }}">About Us</a></li>
+          <li><a href="{{ url('services') }}">Our Services</a></li>
+          <li><a href="{{ url('terms') }}">Terms of Service</a></li>
+          <li><a href="{{ url('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url('faq') }}">Help &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <!-- Banking Services -->
+      <div class="bk-footer-col">
+        <h4>Banking Solutions</h4>
+        <ul>
+          <li><a href="{{ url('services') }}">Global Transfers</a></li>
+          <li><a href="{{ url('services') }}">Personal Banking</a></li>
+          <li><a href="{{ url('services') }}">Business Accounts</a></li>
+          <li><a href="{{ url('services') }}">Loans &amp; Mortgages</a></li>
+          <li><a href="{{ url('services') }}">Fixed Deposits</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div class="bk-footer-col">
+        <h4>Get in Touch</h4>
+        <div class="bk-footer-contact-item">
+          <i class="ri-mail-line"></i>
+          <div><small>Email Support</small><p><a href="mailto:support@primesaversbnk.com">support@primesaversbnk.com</a></p></div>
+        </div>
+        <div class="bk-footer-contact-item">
+          <i class="ri-shield-check-line"></i>
+          <div><small>Security</small><p>256-Bit SSL Encrypted</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bk-footer-bottom">
+    <div class="bk-wrap">
+      <div class="bk-footer-bottom-inner">
+        <p>&copy; {{ date('Y') }} Primesavers Bank. All rights reserved.</p>
+        <div class="bk-footer-bottom-links">
+          <a href="{{ url('terms') }}">Terms</a>
+          <a href="{{ url('terms') }}">Privacy</a>
+          <a href="{{ url('faq') }}">Security</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="bk-scroll-top" id="bkScrollTop" aria-label="Scroll to top"><i class="ri-arrow-up-line"></i></button>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+(function(){
+  /* ================================================================
+     PRELOADER — particle canvas + progress counter
+  ================================================================ */
+  (function(){
+    var preloader = document.getElementById('bkPreloader');
+    var fill      = document.getElementById('bkPlFill');
+    var pctEl     = document.getElementById('bkPlPct');
+    var canvas    = document.getElementById('bkPlCanvas');
+
+    /* ---- Particle canvas ---- */
+    if(canvas){
+      var ctx = canvas.getContext('2d');
+      var W, H, particles = [];
+
+      function resize(){
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      var COLORS = ['rgba(109,59,130,', 'rgba(199,163,216,', 'rgba(71,38,87,', 'rgba(232,223,235,'];
+
+      function Particle(){
+        this.reset();
+      }
+      Particle.prototype.reset = function(){
+        this.x   = Math.random() * W;
+        this.y   = Math.random() * H;
+        this.r   = Math.random() * 2 + .5;
+        this.vx  = (Math.random() - .5) * .4;
+        this.vy  = (Math.random() - .5) * .4;
+        this.col = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.a   = Math.random() * .6 + .2;
+      };
+      Particle.prototype.draw = function(){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = this.col + this.a + ')';
+        ctx.fill();
+      };
+      Particle.prototype.update = function(){
+        this.x += this.vx; this.y += this.vy;
+        if(this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+      };
+
+      for(var i = 0; i < 120; i++) particles.push(new Particle());
+
+      var raf;
+      function loop(){
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(function(p){ p.update(); p.draw(); });
+        raf = requestAnimationFrame(loop);
+      }
+      loop();
+
+      /* Stop canvas once preloader hides */
+      var stopObserver = new MutationObserver(function(){
+        if(preloader && preloader.classList.contains('done')){
+          cancelAnimationFrame(raf);
+          stopObserver.disconnect();
+        }
+      });
+      if(preloader) stopObserver.observe(preloader, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    /* ---- Progress counter ---- */
+    var count = 0;
+    var timer = setInterval(function(){
+      count++;
+      if(pctEl) pctEl.textContent = count + '%';
+      if(fill)  fill.style.width  = count + '%';
+      if(count >= 100){
+        clearInterval(timer);
+        setTimeout(function(){ if(preloader) preloader.classList.add('done'); }, 400);
+      }
+    }, 12);
+
+    window.addEventListener('load', function(){
+      clearInterval(timer);
+      if(pctEl) pctEl.textContent = '100%';
+      if(fill)  fill.style.width  = '100%';
+      setTimeout(function(){ if(preloader) preloader.classList.add('done'); }, 450);
+    });
+  })();
+
+  /* --- Sticky Header --- */
+  var header = document.getElementById('bkHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){ header.classList.add('stuck'); }
+    else { header.classList.remove('stuck'); }
+  });
+
+  /* --- Mobile Drawer --- */
+  var burger = document.getElementById('bkBurger');
+  var drawer = document.getElementById('bkDrawer');
+  var overlay = document.getElementById('bkOverlay');
+  var closeBtn = document.getElementById('bkDrawerClose');
+  function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+  if(burger) burger.addEventListener('click', openDrawer);
+  if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if(overlay) overlay.addEventListener('click', closeDrawer);
+
+  /* --- Hero Carousel --- */
+  var cur = 0, timer, INTERVAL = 6000;
+  var track = document.getElementById('bkHeroTrack');
+  var slides = track ? track.querySelectorAll('.bk-hero-slide') : [];
+  var total = slides.length || 4;
+  var dots = document.querySelectorAll('#bkDots button');
+  var progress = document.getElementById('bkProgress');
+
+  function go(i){
+    cur = ((i % total) + total) % total;
+    if(track) track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach(function(d,idx){ d.classList.toggle('active', idx===cur); });
+    resetProgress();
+  }
+  function resetProgress(){
+    if(!progress) return;
+    progress.style.transition = 'none';
+    progress.style.width = '0%';
+    void progress.offsetWidth;
+    progress.style.transition = 'width ' + INTERVAL + 'ms linear';
+    progress.style.width = '100%';
+  }
+  function auto(){ timer = setInterval(function(){ go(cur+1); }, INTERVAL); }
+  function stopAuto(){ clearInterval(timer); }
+  window.bkSlide = function(d){ stopAuto(); go(cur+d); auto(); };
+  window.bkGo = function(i){ stopAuto(); go(i); auto(); };
+  resetProgress(); auto();
+
+  /* --- Scroll Top Button --- */
+  var stb = document.getElementById('bkScrollTop');
+  window.addEventListener('scroll', function(){
+    if(stb){ stb.classList.toggle('show', window.scrollY > 350); }
+  });
+  if(stb) stb.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  /* --- Scroll Reveal --- */
+  var srEls = document.querySelectorAll('.sr');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    srEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    srEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
