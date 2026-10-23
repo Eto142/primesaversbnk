@@ -57,7 +57,7 @@
     <!-- Bank name -->
     <div class="bk-pl-brand">
       <span class="bk-pl-brand-name">Primesavers Bank</span>
-      <span class="bk-pl-brand-tagline">Securing your session<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
+      <span class="bk-pl-brand-tagline">Loading your secure banking portal<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
     </div>
 
     <!-- Progress track -->
@@ -68,7 +68,7 @@
     <!-- Counter + status -->
     <div class="bk-pl-meta">
       <span class="bk-pl-pct" id="bkPlPct">0%</span>
-      <span class="bk-pl-status"><i class="ri-shield-check-line"></i> 256-bit encrypted</span>
+      <span class="bk-pl-status"><i class="ri-shield-check-line"></i> Secured by 256-bit encryption</span>
     </div>
 
   </div>
