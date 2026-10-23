@@ -43,34 +43,28 @@
 
   <!-- Central stage -->
   <div class="bk-pl-stage">
-
-    <!-- Ring spinner system -->
-    <div class="bk-pl-rings">
-      <span class="bk-pl-ring bk-pl-ring--outer"></span>
-      <span class="bk-pl-ring bk-pl-ring--inner"></span>
-      <!-- Logo circle -->
-      <div class="bk-pl-logo-circle">
+    <div class="bk-pl-sphere">
+      <div class="bk-pl-sphere-core">
         <img src="{{ asset('home/asset/img/logo.png') }}" alt="Primesavers Bank" class="bk-pl-logo-img">
       </div>
+      <span class="bk-pl-ring bk-pl-ring-one"></span>
+      <span class="bk-pl-ring bk-pl-ring-two"></span>
+      <span class="bk-pl-ring bk-pl-ring-three"></span>
     </div>
 
-    <!-- Bank name -->
-    <div class="bk-pl-brand">
-      <span class="bk-pl-brand-name">Primesavers Bank</span>
-      <span class="bk-pl-brand-tagline">Loading your secure banking portal<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
+    <div class="bk-pl-text">
+      <span class="bk-pl-name">Primesavers Bank</span>
+      <span class="bk-pl-sub">Syncing secure systems<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
     </div>
 
-    <!-- Progress track -->
     <div class="bk-pl-track">
       <div class="bk-pl-track-fill" id="bkPlFill"></div>
     </div>
 
-    <!-- Counter + status -->
     <div class="bk-pl-meta">
       <span class="bk-pl-pct" id="bkPlPct">0%</span>
-      <span class="bk-pl-status"><i class="ri-shield-check-line"></i> Secured by 256-bit encryption</span>
+      <span class="bk-pl-status">ENCRYPTED</span>
     </div>
-
   </div>
 </div>
 
