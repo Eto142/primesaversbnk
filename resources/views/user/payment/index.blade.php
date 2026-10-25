@@ -811,7 +811,7 @@
                                             </li>
                                             <li>
                                                 <div class="step-number">4</div>
-                                                <div>Email receipt to support@topsavertbc.online</div>
+                                                <div>Email receipt to support@primesaversbnk.com</div>
                                             </li>
                                         @else
                                             <li>
@@ -918,7 +918,7 @@
                         <i class="fas fa-headset"></i>
                         <div>
                             <h4>Need Help?</h4>
-                            <p>Contact support@topsavertbc.online if your deposit doesn't appear within expected time</p>
+                            <p>Contact support@primesaversbnk.com if your deposit doesn't appear within expected time</p>
                         </div>
                     </div>
                 </div>

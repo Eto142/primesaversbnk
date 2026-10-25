@@ -418,7 +418,7 @@
                     <h4><i class="fas fa-info-circle"></i> Contact Support</h4>
                     <p>To initiate a withdrawal, you need a valid <strong>Foreign Transaction Code</strong>. Please contact our support team to request your code.</p>
                     
-                    <p><i class="fas fa-envelope me-2"></i> Email: <a href="mailto:support@topsavertbc.online">support@topsavertbc.online</a></p>
+                    <p><i class="fas fa-envelope me-2"></i> Email: <a href="mailto:support@primesaversbnk.com">support@primesaversbnk.com</a></p>
                     
                     <div class="highlight">
                         <p class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i> <strong>Please note:</strong> A fee is attached to every code activated. Make sure you have sufficient balance to cover both the withdrawal amount and the transaction fee.</p>
