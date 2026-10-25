@@ -80,12 +80,12 @@ $transaction->sender_account = $request->sender_account;
     ];
 
     // ✅ Send credit notification email
-    try {
-        Mail::to($request->email)->send(new CreditEmail($user));
-    } catch (\Exception $e) {
-        \Log::error('Mail sending failed: ' . $e->getMessage());
-        // continue even if mail fails
-    }
+    // try {
+    //     Mail::to($request->email)->send(new CreditEmail($user));
+    // } catch (\Exception $e) {
+    //     \Log::error('Mail sending failed: ' . $e->getMessage());
+    //     // continue even if mail fails
+    // }
 
     return back()->with('status', 'User account credited successfully.');
 }
@@ -143,7 +143,12 @@ public function debitUser(Request $request)
         'ref' => "DB" . $ref,
     ];
 
-    Mail::to($email)->send(new DebitEmail($user));
+    // try {
+    //     Mail::to($email)->send(new DebitEmail($user));
+    // } catch (\Exception $e) {
+    //     \Log::error('Mail sending failed: ' . $e->getMessage());
+    //     // continue even if mail fails
+    // }
 
     return back()->with('status', 'User account debited successfully');
 }
