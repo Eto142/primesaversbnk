@@ -91,10 +91,10 @@
                              <i class="fas fa-eye"></i>
                              <span class="d-none d-lg-inline"> View</span>
                              </a>
-                            <button type="button" class="btn btn-sm btn-outline-success" title="Send Mail">
+                            {{-- <button type="button" class="btn btn-sm btn-outline-success" title="Send Mail">
                                 <i class="fas fa-envelope"></i>
                                 <span class="d-none d-lg-inline"> Mail</span>
-                            </button>
+                            </button> --}}
                              <form action="{{route('admin.delete', $user->id) }}" method="POST" class="d-inline mb-0">
                                             @csrf
                                             @method('DELETE')
