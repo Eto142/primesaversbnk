@@ -43,18 +43,15 @@
 
   <!-- Central stage -->
   <div class="bk-pl-stage">
-    <div class="bk-pl-sphere">
-      <div class="bk-pl-sphere-core">
+    <div class="bk-pl-brand">
+      <div class="bk-pl-badge">
         <img src="{{ asset('home/asset/img/logo.png') }}" alt="Primesavers Bank" class="bk-pl-logo-img">
       </div>
-      <span class="bk-pl-ring bk-pl-ring-one"></span>
-      <span class="bk-pl-ring bk-pl-ring-two"></span>
-      <span class="bk-pl-ring bk-pl-ring-three"></span>
     </div>
 
     <div class="bk-pl-text">
       <span class="bk-pl-name">Primesavers Bank</span>
-      <span class="bk-pl-sub">Syncing secure systems<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
+      <span class="bk-pl-sub">Preparing your secure banking experience<span class="bk-pl-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span></span>
     </div>
 
     <div class="bk-pl-track">
@@ -63,7 +60,7 @@
 
     <div class="bk-pl-meta">
       <span class="bk-pl-pct" id="bkPlPct">0%</span>
-      <span class="bk-pl-status">ENCRYPTED</span>
+      <span class="bk-pl-status">SECURE</span>
     </div>
   </div>
 </div>
