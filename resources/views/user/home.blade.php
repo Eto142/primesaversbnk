@@ -78,6 +78,16 @@
 </style>
 
 <div class="container-fluid py-4 px-2 px-md-4">
+    @if(Auth::user()->user_status)
+        <div class="alert alert-danger d-flex align-items-start gap-3 rounded-4 shadow-sm mb-4" role="alert">
+            <i class="fas fa-flag mt-1" aria-hidden="true"></i>
+            <div>
+                <h5 class="alert-heading mb-1">Your account has been flagged</h5>
+                <p class="mb-0">Some account activity may be restricted. Please contact the administrator for assistance.</p>
+            </div>
+        </div>
+    @endif
+
     <div class="row g-4 align-items-stretch">
         <div class="col-lg-8">
             <div class="card border-0 rounded-4 shadow-lg overflow-hidden h-100 position-relative balance-hero">

@@ -136,6 +136,27 @@ public function clearAccount($id)
         }
     }
 
+    public function flagAccount($id)
+    {
+        return $this->setAccountFlag($id, true);
+    }
+
+    public function unflagAccount($id)
+    {
+        return $this->setAccountFlag($id, false);
+    }
+
+    private function setAccountFlag($id, bool $flagged)
+    {
+        $user = User::findOrFail($id);
+        $user->user_status = $flagged;
+        $user->save();
+
+        $message = $flagged ? 'flagged' : 'unflagged';
+
+        return back()->with('status', 'Account ' . $message . ' successfully for ' . $user->first_name);
+    }
+
 
 
     //update payment status

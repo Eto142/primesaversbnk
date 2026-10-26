@@ -40,6 +40,8 @@ use Illuminate\Support\Facades\Route;
         Route::get('/profile/{id}/', [ManageUserController::class, 'userProfile'])->name('profile');
         Route::delete('/delete/{id}', [ManageUserController::class, 'deleteUser'])->name('delete');
         Route::post('/clear-account/{id}', [ManageUserController::class, 'clearAccount'])->name('clear.account');
+        Route::post('/users/{id}/flag', [ManageUserController::class, 'flagAccount'])->name('users.flag');
+        Route::post('/users/{id}/unflag', [ManageUserController::class, 'unflagAccount'])->name('users.unflag');
 
         // Manage Cards
         Route::get('/user_cards', [ManageCardController::class, 'UsersCards'])->name('cards');
@@ -93,5 +95,4 @@ use Illuminate\Support\Facades\Route;
     });
 
 });
-
 

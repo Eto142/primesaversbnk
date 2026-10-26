@@ -107,6 +107,28 @@
     </h3>
 </div>
 
+                    <div class="mb-4">
+                        <h5 class="text-muted">Account Status</h5>
+                        <h3 class="mb-2 text-{{ $userProfile->user_status ? 'danger' : 'success' }}">
+                            {{ $userProfile->user_status ? 'Flagged' : 'Active' }}
+                        </h3>
+                        @if($userProfile->user_status)
+                            <form action="{{ route('admin.users.unflag', $userProfile->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success" onclick="return confirm('Unflag this account?')">
+                                    <i class="fas fa-unlock me-1"></i> Unflag Account
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('admin.users.flag', $userProfile->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-warning" onclick="return confirm('Flag this account? Transfers and withdrawals will be blocked.')">
+                                    <i class="fas fa-flag me-1"></i> Flag Account
+                                </button>
+                            </form>
+                        @endif
+                    </div>
+
                     <h3 class="mb-1">{{ $userProfile->first_name }}</h3>
                     <p class="text-muted mb-3">{{ $userProfile->email }}</p>
                       <p class="text-muted mb-3">Account Number:{{ $userProfile->account_number }}</p>
