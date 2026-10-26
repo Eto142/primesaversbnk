@@ -112,6 +112,20 @@
   </div>
 </header>
 
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '4ead5df1fa25f4c3373632bfc1d1a5e4d76da6af';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
 <!-- ===== MOBILE SLIDE DRAWER ===== -->
 <div class="bk-overlay" id="bkOverlay"></div>
 <div class="bk-drawer" id="bkDrawer">
